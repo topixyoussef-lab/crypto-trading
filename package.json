@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "server": "cd server && node index.js",
+    "server": "node server/index.js",
     "client": "cd client && npx vite --host",
-    "start": "start cmd /c \"cd server && node index.js\" && start cmd /c \"cd client && npx vite --host\""
+    "start": "node server/index.js"
   }
 }

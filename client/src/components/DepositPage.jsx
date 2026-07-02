@@ -6,8 +6,7 @@ export default function DepositPage({ onDeposit, onWithdraw, onClose }) {
   const [copied, setCopied] = useState(false);
   const [wdAddr, setWdAddr] = useState('');
   const [wdAmt, setWdAmt] = useState('');
-  const [scanning, setScanning] = useState(false);
-  const [detected, setDetected] = useState(false);
+  const [depAmt, setDepAmt] = useState('');
 
   const handleCopy = () => {
     navigator.clipboard.writeText(USDT_ADDRESS);
@@ -75,41 +74,22 @@ export default function DepositPage({ onDeposit, onWithdraw, onClose }) {
             Send only <strong style={{ color: '#e2e8f0' }}>USDT</strong> on <strong style={{ color: '#e2e8f0' }}>ERC-20</strong>.
           </div>
 
-          {!detected && (
-            <button onClick={() => {
-              if (scanning) return;
-              setScanning(true);
-              setTimeout(() => {
-                const amount = parseFloat((Math.random() * 500 + 20).toFixed(2));
-                onDeposit(amount);
-                setScanning(false);
-                setDetected(true);
-              }, 3000);
-            }}
-              style={{
-                marginTop: '16px', padding: '14px', borderRadius: '10px', border: 'none',
-                width: '100%', background: scanning ? 'var(--bg-card)' : 'var(--blue)',
-                color: '#fff', fontSize: '14px', fontWeight: 700, cursor: scanning ? 'not-allowed' : 'pointer',
-              }}
-            >{scanning ? 'Scanning blockchain...' : 'Detect Incoming Deposit'}</button>
-          )}
-          {detected && (
-            <div style={{
-              marginTop: '16px', padding: '14px', borderRadius: '10px',
-              background: 'rgba(0,200,83,0.1)', border: '1px solid rgba(0,200,83,0.2)',
-              color: 'var(--green)', fontSize: '14px', fontWeight: 600, textAlign: 'center',
-            }}>
-              Deposit detected and credited to your balance!
-              <button onClick={() => setDetected(false)}
+          <div style={{ marginTop: '16px' }}>
+            <div style={{ fontSize: '14px', fontWeight: 600, color: '#e2e8f0', marginBottom: '10px' }}>Confirm Deposit</div>
+            <div style={{ display: 'flex', gap: '8px' }}>
+              <input value={depAmt} onChange={e => setDepAmt(e.target.value)}
+                onKeyDown={e => { if (e.key === 'Enter' && parseFloat(depAmt) > 0) { onDeposit(parseFloat(depAmt)); setDepAmt(''); } }}
+                placeholder="USDT amount you sent" type="number" min="1" style={inputStyle} />
+              <button onClick={() => { if (parseFloat(depAmt) > 0) { onDeposit(parseFloat(depAmt)); setDepAmt(''); } }}
                 style={{
-                  display: 'block', margin: '10px auto 0', padding: '8px 16px',
-                  borderRadius: '8px', border: '1px solid rgba(0,200,83,0.3)',
-                  background: 'transparent', color: 'var(--green)', fontSize: '12px',
-                  fontWeight: 600, cursor: 'pointer',
+                  padding: '12px 24px', borderRadius: '10px', border: 'none',
+                  background: 'var(--green)', color: '#fff', fontSize: '14px',
+                  fontWeight: 700, cursor: 'pointer', whiteSpace: 'nowrap',
+                  opacity: parseFloat(depAmt) > 0 ? 1 : 0.5,
                 }}
-              >Detect Another Deposit</button>
+              >Confirm Deposit</button>
             </div>
-          )}
+          </div>
         </div>
 
         <div style={{

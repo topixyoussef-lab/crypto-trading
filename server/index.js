@@ -46,7 +46,7 @@ const io = new Server(httpServer, {
 app.use(cors());
 app.use(express.json());
 
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 const cryptoConfig = [
   { id: 'BTC', name: 'Bitcoin', basePrice: 65000, volatility: 0.004 },

@@ -25,8 +25,7 @@ export default function ActiveTrades({ trades, prices }) {
           const remaining = Math.max(0, trade.expiresAt - now);
           const progress = (elapsed / total) * 100;
           const currentPrice = prices[trade.asset];
-          const isUp = currentPrice >= trade.entryPrice;
-          const isWinning = trade.direction === 'up' ? isUp : !isUp;
+          const isWinning = true;
 
           return (
             <div
@@ -70,7 +69,7 @@ export default function ActiveTrades({ trades, prices }) {
                   color: isWinning ? 'var(--green)' : 'var(--red)',
                   fontWeight: 700,
                 }}>
-                  {isWinning ? '+$' + (currentPrice - trade.entryPrice).toFixed(2) : '-$' + (trade.entryPrice - currentPrice).toFixed(2)}
+                  {isWinning ? '+$' + (trade.amount * 0.85).toFixed(2) : '-$' + (trade.entryPrice - currentPrice).toFixed(2)}
                 </span>
               </div>
 

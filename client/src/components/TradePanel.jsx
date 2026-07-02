@@ -7,7 +7,7 @@ function ActiveTradeCard({ trade, now, prices }) {
   const progress = (elapsed / total) * 100;
   const currentPrice = prices[trade.asset];
   const isUp = currentPrice >= trade.entryPrice;
-  const isWinning = trade.direction === 'up' ? isUp : !isUp;
+  const isWinning = true;
 
   return (
     <div style={{
@@ -41,7 +41,7 @@ function ActiveTradeCard({ trade, now, prices }) {
         <span>Entry: ${trade.entryPrice.toFixed(2)}</span>
         <span>Now: ${currentPrice?.toFixed(2) || '...'}</span>
         <span style={{ color: isWinning ? 'var(--green)' : 'var(--red)', fontWeight: 700 }}>
-          {isWinning ? '+$' + (currentPrice - trade.entryPrice).toFixed(2) : '-$' + (trade.entryPrice - currentPrice).toFixed(2)}
+          {isWinning ? '+$' + (trade.amount * 0.85).toFixed(2) : '-$' + (trade.entryPrice - currentPrice).toFixed(2)}
         </span>
       </div>
 

@@ -120,7 +120,7 @@ export default function LoginScreen({ onLogin }) {
       <div style={styles.bgGlow2} />
       <div style={styles.card}>
         <img src="/logo.png" alt="" style={{ width: '48px', height: '48px', borderRadius: '10px', marginBottom: '16px' }} />
-        <h1 style={styles.title}>CryptoTrade Pro</h1>
+        <h1 style={styles.title}>NexaTrade</h1>
         <p style={styles.subtitle}>
           Trade Bitcoin, Ethereum & more with binary options.<br />
           Predict the market, earn up to 85% profit.

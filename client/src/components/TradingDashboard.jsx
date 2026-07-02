@@ -176,7 +176,7 @@ export default function TradingDashboard({
       <header style={styles.header}>
         <div style={styles.logo}>
           <img src="/logo.png" alt="" style={{ width: '28px', height: '28px', borderRadius: '6px' }} />
-          CryptoTrade Pro
+          NexaTrade
         </div>
         <div style={styles.userInfo}>
           <div style={{ display: 'flex', gap: '4px' }}>

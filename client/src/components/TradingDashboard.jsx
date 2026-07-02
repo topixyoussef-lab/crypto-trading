@@ -155,7 +155,8 @@ export default function TradingDashboard({
     setTimeout(() => {
       const currentPrice = pricesRef.current[asset];
       if (!currentPrice) return;
-      const won = true;
+      const isUp = currentPrice >= entryPrice;
+      const won = direction === 'up' ? isUp : !isUp;
       if (won) {
         const payout = amount * 1.85;
         setRealBal(prev2 => {

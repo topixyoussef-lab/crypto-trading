@@ -98,7 +98,17 @@ export default function DepositPage({ onDeposit, onWithdraw, onClose }) {
               marginTop: '16px', padding: '14px', borderRadius: '10px',
               background: 'rgba(0,200,83,0.1)', border: '1px solid rgba(0,200,83,0.2)',
               color: 'var(--green)', fontSize: '14px', fontWeight: 600, textAlign: 'center',
-            }}>Deposit detected and credited to your balance!</div>
+            }}>
+              Deposit detected and credited to your balance!
+              <button onClick={() => setDetected(false)}
+                style={{
+                  display: 'block', margin: '10px auto 0', padding: '8px 16px',
+                  borderRadius: '8px', border: '1px solid rgba(0,200,83,0.3)',
+                  background: 'transparent', color: 'var(--green)', fontSize: '12px',
+                  fontWeight: 600, cursor: 'pointer',
+                }}
+              >Detect Another Deposit</button>
+            </div>
           )}
         </div>
 

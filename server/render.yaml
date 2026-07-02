@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: crypto-trading-server
+    env: node
+    region: ohio
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18

@@ -1,0 +1,9 @@
+Crypto Trading Server running on port 3001
+Client connected: Km8-7g9I1pSJH7WOAAAC
+Client connected: o65P2OGAYCNN6iEAAAAF
+Client disconnected: o65P2OGAYCNN6iEAAAAF
+Client connected: L0tZetjoQvz7EskHAAAI
+Client disconnected: L0tZetjoQvz7EskHAAAI
+Client connected: 1VzAYs9VIIBoxcf5AAAL
+Client disconnected: 1VzAYs9VIIBoxcf5AAAL
+Client connected: g5MI5l6MwvPI7SL5AAAO

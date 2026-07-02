@@ -175,7 +175,7 @@ export default function TradingDashboard({
     <div style={styles.container}>
       <header style={styles.header}>
         <div style={styles.logo}>
-          <div style={styles.logoIcon}>CT</div>
+          <img src="/logo.png" alt="" style={{ width: '28px', height: '28px', borderRadius: '6px' }} />
           CryptoTrade Pro
         </div>
         <div style={styles.userInfo}>
